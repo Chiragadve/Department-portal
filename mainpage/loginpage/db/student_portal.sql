@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2024 at 01:31 PM
+-- Generation Time: Apr 04, 2024 at 08:13 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,12 +24,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `aoa`
+--
+
+CREATE TABLE `aoa` (
+  `id` int(11) NOT NULL,
+  `roll_number` varchar(50) DEFAULT NULL,
+  `attended` int(11) DEFAULT NULL,
+  `total_conducted` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `aoa`
+--
+
+INSERT INTO `aoa` (`id`, `roll_number`, `attended`, `total_conducted`) VALUES
+(0, '10398', 20, 10);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `attendance`
 --
 
 CREATE TABLE `attendance` (
   `id` int(11) NOT NULL,
-  `roll_number` int(11) DEFAULT NULL,
+  `roll_number` varchar(50) DEFAULT NULL,
   `aoa_attended` int(11) DEFAULT NULL,
   `aoa_total` int(11) DEFAULT NULL,
   `em3_attended` int(11) DEFAULT NULL,
@@ -47,7 +67,7 @@ CREATE TABLE `attendance` (
 --
 
 INSERT INTO `attendance` (`id`, `roll_number`, `aoa_attended`, `aoa_total`, `em3_attended`, `em3_total`, `pyp_attended`, `pyp_total`, `dbms_attended`, `dbms_total`, `os_attended`, `os_total`) VALUES
-(5, 10403, 10, 20, 15, 25, 18, 30, 22, 28, 20, 30);
+(6, '10398', 20, 10, NULL, NULL, 30, 30, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -67,6 +87,65 @@ CREATE TABLE `compdivasem4teachers` (
 INSERT INTO `compdivasem4teachers` (`id`, `name`) VALUES
 (1, 'Ankita'),
 (2, 'Prasad');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dbms`
+--
+
+CREATE TABLE `dbms` (
+  `id` int(11) NOT NULL,
+  `roll_number` varchar(50) DEFAULT NULL,
+  `attended` int(11) DEFAULT NULL,
+  `total_conducted` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `em3`
+--
+
+CREATE TABLE `em3` (
+  `id` int(11) NOT NULL,
+  `roll_number` varchar(50) DEFAULT NULL,
+  `attended` int(11) DEFAULT NULL,
+  `total_conducted` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `os`
+--
+
+CREATE TABLE `os` (
+  `id` int(11) NOT NULL,
+  `roll_number` varchar(50) DEFAULT NULL,
+  `attended` int(11) DEFAULT NULL,
+  `total_conducted` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pyp`
+--
+
+CREATE TABLE `pyp` (
+  `id` int(11) NOT NULL,
+  `roll_number` varchar(50) DEFAULT NULL,
+  `attended` int(11) DEFAULT NULL,
+  `total_conducted` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pyp`
+--
+
+INSERT INTO `pyp` (`id`, `roll_number`, `attended`, `total_conducted`) VALUES
+(1, '10398', 30, 30);
 
 -- --------------------------------------------------------
 
@@ -97,9 +176,7 @@ CREATE TABLE `student` (
 
 INSERT INTO `student` (`id`, `name`, `roll_number`, `dob`, `username`, `password`, `contact`, `email`, `address`, `course`, `image`, `division`, `semester`, `teacher`) VALUES
 (26, 'mark', '20', '2024-03-05', 'mark', 'mark', '9999999999', 'mark@gmail.com', '123 main steet', 'Computer Engineering', 'download.jpeg', 'A', 2, 'sam'),
-(28, 'saad', '10403', '2024-03-12', 'saad', 'saad', '9878987898', 'saad@gmail.com', '1234 main street', 'Computer Engineering', 'download.jpeg', 'A', 4, 'Ankita, prasad'),
-(29, 'shubham', '1029', '2024-03-07', 'shubham', 'shubham', '9878987678', 'shubham@gmail.com', '123 main street', 'Computer Engineering', '0jqtsr59T9C2vSTDS5T5Uw.png', 'A', 4, 'Ankita, prasad'),
-(30, 'ritik', '129', '2024-02-29', 'ritik', 'ritik', '7777777777', 'ritik@gmail.com', '123 main street', 'Computer Engineering', '0jqtsr59T9C2vSTDS5T5Uw.png', 'A', 4, 'Ankita, prasad');
+(31, 'Chirag', '10398', '2024-04-17', 'chirag', 'chirag', '8883838388', 'chirag@gmail.com', '123 main street', 'Computer Engineering', 'profilepicture.png', 'A', 4, 'ankita, prasad, prajakta, prachi, sujata');
 
 -- --------------------------------------------------------
 
@@ -124,9 +201,11 @@ CREATE TABLE `teachers` (
 --
 
 INSERT INTO `teachers` (`id`, `Name`, `eid`, `username`, `password`, `department`, `division`, `semester`, `subject`) VALUES
-(2, 'Ankita', '2999', 'ankita', 'ankita', 'Computer Engineering', 'A', 4, 'AOA'),
-(3, 'prasad', '002', 'prasad', 'prasad', 'Computer Engineering', 'A', 4, 'EM4'),
-(4, 'sam', '2092', 'sam', 'sam', 'Computer Engineering', 'A', 2, NULL);
+(5, 'ankita', '3399', 'ankita', 'ankita', 'Computer Engineering', 'A', 4, 'AOA'),
+(6, 'prasad', '982', 'prasad', 'prasad', 'Computer Engineering', 'A', 4, 'EM3'),
+(7, 'prajakta', '223', 'prajakta', 'prajakta', 'Computer Engineering', 'A', 4, 'PYP'),
+(8, 'prachi', '838', 'prachi', 'prachi', 'Computer Engineering', 'A', 4, 'OS'),
+(9, 'sujata', '383', 'sujata', 'sujata', 'Computer Engineering', 'A', 4, 'DBMS');
 
 -- --------------------------------------------------------
 
@@ -146,10 +225,17 @@ CREATE TABLE `utmarks` (
 --
 
 --
+-- Indexes for table `aoa`
+--
+ALTER TABLE `aoa`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `attendance`
 --
 ALTER TABLE `attendance`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique_roll_number` (`roll_number`);
 
 --
 -- Indexes for table `compdivasem4teachers`
@@ -158,10 +244,35 @@ ALTER TABLE `compdivasem4teachers`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `dbms`
+--
+ALTER TABLE `dbms`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `em3`
+--
+ALTER TABLE `em3`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `os`
+--
+ALTER TABLE `os`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pyp`
+--
+ALTER TABLE `pyp`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `student`
 --
 ALTER TABLE `student`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique_roll_number` (`roll_number`);
 
 --
 -- Indexes for table `teachers`
@@ -184,7 +295,7 @@ ALTER TABLE `utmarks`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `compdivasem4teachers`
@@ -193,22 +304,56 @@ ALTER TABLE `compdivasem4teachers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `dbms`
+--
+ALTER TABLE `dbms`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `em3`
+--
+ALTER TABLE `em3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `os`
+--
+ALTER TABLE `os`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pyp`
+--
+ALTER TABLE `pyp`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `utmarks`
 --
 ALTER TABLE `utmarks`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `attendance`
+--
+ALTER TABLE `attendance`
+  ADD CONSTRAINT `fk_attendance_student` FOREIGN KEY (`roll_number`) REFERENCES `student` (`roll_number`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
