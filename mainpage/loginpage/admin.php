@@ -142,7 +142,7 @@ document.getElementById("executeButton").addEventListener("click", function() {
         </div>
         <div class="box">
           <div class="right-side">
-            <div class="box-topic">Add Acacemic Event: <input type="textarea"></div>
+            <div class="box-topic">Add Acacemic : <input type="textarea"></div>
             <br>
             <button>Add Event</button>
             <div class="indicator">
@@ -151,8 +151,9 @@ document.getElementById("executeButton").addEventListener("click", function() {
         </div>
         <div class="box">
           <div class="right-side">
-            <div class="box-topic">Total Teachers</div>
-            <div class="number">42</div>
+            <div class="box-topic">Add Technical Event</div>
+            <br>
+            <button>Add Event</button>
             <div class="indicator">
             </div>
           </div>
