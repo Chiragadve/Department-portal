@@ -142,8 +142,9 @@ document.getElementById("executeButton").addEventListener("click", function() {
         </div>
         <div class="box">
           <div class="right-side">
-            <div class="box-topic">Events</div>
-            <div class="number">1</div>
+            <div class="box-topic">Add Acacemic Event: <input type="textarea"></div>
+            <br>
+            <button>Add Event</button>
             <div class="indicator">
             </div>
           </div>
