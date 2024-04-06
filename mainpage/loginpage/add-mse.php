@@ -132,7 +132,7 @@
               </style>
               </head>
               
-              <form action="submit-ut.php" method="POST">
+              <form action="submit-mse.php" method="POST">
               <body>
                 <h2 align="center">MSE Marks Form</h2>
                 <br>
