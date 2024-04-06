@@ -32,13 +32,13 @@
         </a>
       </li>
       <li>
-        <a href="#" class="active">
+        <a href="add-attandance.php" >
           <i class="bx bx-box"></i>
           <span class="links_name">Add Attandance</span>
         </a>
       </li>
       <li>
-        <a href="add-mse.php">
+        <a href="add-mse.php" class="active">
           <i class="bx bx-box"></i>
           <span class="links_name">Add MSE Marks</span>
         </a>
@@ -132,9 +132,9 @@
               </style>
               </head>
               
-              <form action="submit-attendance.php" method="POST">
+              <form action="submit-ut.php" method="POST">
               <body>
-                <h2 align="center">Attendance Form</h2>
+                <h2 align="center">MSE Marks Form</h2>
                 <br>
                 <table>
                   <tr>
@@ -155,11 +155,10 @@
 
                 <table>
                   <tr>
-                    <th>No of classes conducted in this week</th>
+                    <th> Total Obtainable Marks</th>
                     <td>
-                    <input type="text" name="total_conducted" required>
+                    <input type="text" name="total_marks">
                     </td>
-
                   </tr>
                 </table>
                 <br>
@@ -169,7 +168,7 @@
                   <tr class="bold-row">
                     <th>Roll No.</th>
                     <th>Student Name</th>
-                    <th>This Week Attendance</th>
+                    <th>Unit Test Marks</th>
                   </tr>
                   <?php
                   // Iterate over the fetched rows and populate the table dynamically
@@ -178,7 +177,7 @@
                     echo "<td>" . $row['roll_number'] . "</td>";
                     echo "<td>" . $row['name'] . "</td>";
                     echo "<td>";
-                    echo "<input name='attendance[" . $row['roll_number'] . "]' type='text' required>";
+                    echo "<input name='marks[" . $row['roll_number'] . "]' type='text'>";
                     echo "</td>";
                     echo "</tr>";
                   }
@@ -189,8 +188,6 @@
               <button type="submit">Submit</button>
             </form>
           </div>
-
-
 </body>
 
 <style>

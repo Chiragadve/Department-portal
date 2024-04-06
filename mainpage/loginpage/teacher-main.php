@@ -36,9 +36,9 @@
         </a>
       </li>
       <li>
-        <a href="add-unitmarks.php">
+        <a href="add-mse.php">
           <i class="bx bx-box"></i>
-          <span class="links_name">Add Unit marks</span>
+          <span class="links_name">Add MSE Marks</span>
         </a>
       </li>
       <li class="log_out">
