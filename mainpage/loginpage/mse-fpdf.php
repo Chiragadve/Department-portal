@@ -1,25 +1,18 @@
-from fpdf import FPDF
+<?php
+require('fpdf186/fpdf.php');
 
-# Create instance of FPDF class
-pdf = FPDF()
+// Create instance of FPDF class
+$pdf = new FPDF();
 
-# Add a page
-pdf.add_page()
+// Add a page
+$pdf->AddPage();
 
-# Set font for the entire document
-pdf.set_font("Arial", size=12)
+// Set font for the entire document
+$pdf->SetFont('Arial', '', 12);
 
-# Add a cell
-pdf.cell(200, 10, txt="Welcome to FPDF!", ln=True, align="C")
+$pdf->Image('images/banner.jpg', 10, 10, 180); // Replace 'path_to_image.jpg' with the actual path to your image file
 
-# Add another cell
-pdf.cell(200, 10, txt="This is a basic example of creating PDF using FPDF.", ln=True, align="C")
 
-# Add a line break
-pdf.ln(10)
-
-# Add another cell
-pdf.cell(200, 10, txt="You can customize the content as per your requirements.", ln=True, align="C")
-
-# Save the PDF
-pdf.output("basic_example.pdf")
+// Output PDF to browser
+$pdf->Output();
+?>
