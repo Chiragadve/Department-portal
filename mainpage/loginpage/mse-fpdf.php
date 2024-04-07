@@ -1,4 +1,34 @@
 <?php
+// Ensure no output before session start
+ob_start();
+session_start();
+
+// Redirect to login page if user is not logged in
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
+
+require_once "dbh.inc.php";
+
+$username = $_SESSION['username'];
+
+// Fetch user data
+$user_query = "SELECT * FROM student WHERE username = ?";
+$user_stmt = $pdo->prepare($user_query);
+$user_stmt->execute([$username]);
+$user = $user_stmt->fetch(PDO::FETCH_ASSOC);
+
+// Fetch attendance data for the user
+$attendance_query = "SELECT * FROM attendance WHERE roll_number = ?";
+$attendance_stmt = $pdo->prepare($attendance_query);
+$attendance_stmt->execute([$user['roll_number']]);
+$attendance_data = $attendance_stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Clear output buffer
+ob_end_clean();
+
+// Include FPDF library
 require('fpdf186/fpdf.php');
 
 // Create instance of FPDF class
@@ -25,11 +55,9 @@ $pdf->Cell(0, 10, 'Report Card', 0, 1, 'C');
 // Set font style for student details
 $pdf->SetFont('Arial', '', 12); 
 
-// Name: Chirag Manohar Adve (Left-aligned)
-$pdf->Cell(0, 10, 'Name: Chirag Manohar Adve', 0, 1, 'L');
-
-// Roll No. : 10398 (Left-aligned)
-$pdf->Cell(0, 10, 'Roll No. : 10398', 0, 1, 'L');
+// Display student details
+$pdf->Cell(0, 10, 'Name: ' . $user['name'], 0, 1, 'L');
+$pdf->Cell(0, 10, 'Roll No. : ' . $user['roll_number'], 0, 1, 'L');
 
 $pdf->SetFont('Arial', 'B', 12); // Set font style to bold
 $pdf->Cell(0, 10, 'Attendance:', 0, 1, 'L'); // Left-aligned
