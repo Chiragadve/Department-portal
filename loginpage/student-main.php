@@ -112,6 +112,15 @@ $attendance_data = $attendance_stmt->fetch(PDO::FETCH_ASSOC);
 
             <div class="subjects">
                 <div class="eg">
+                    <?php
+                    // Check if attendance is less than 75%
+                    if (isset($attendance_data['aoa_attended']) && isset($attendance_data['aoa_total'])) {
+                        $attendance_percentage = ($attendance_data['aoa_attended'] / $attendance_data['aoa_total']) * 100;
+                        if ($attendance_percentage < 75) {
+                            echo "<p><b class='defaulter'>Defaulter</b></p>";
+                        }
+                    }
+                    ?>
                     <span class="material-icons-sharp">architecture</span>
                     <h3>Analysis of Algorithm</h3>
                     <h2>
@@ -141,6 +150,15 @@ $attendance_data = $attendance_stmt->fetch(PDO::FETCH_ASSOC);
                     </div>
                 </div>
                 <div class="eg">
+                <?php
+                    // Check if attendance is less than 75%
+                    if (isset($attendance_data['em3_attended']) && isset($attendance_data['em3_total'])) {
+                        $attendance_percentage = ($attendance_data['em3_attended'] / $attendance_data['em3_total']) * 100;
+                        if ($attendance_percentage < 75) {
+                            echo "<p><b class='defaulter'>Defaulter</b></p>";
+                        }
+                    }
+                    ?>
                     <span class="material-icons-sharp">functions</span>
                     <h3>Engineering Mathematics</h3>
                     <h2>
@@ -169,6 +187,15 @@ $attendance_data = $attendance_stmt->fetch(PDO::FETCH_ASSOC);
                     </div>
                 </div>
                 <div class="cs">
+                <?php
+                    // Check if attendance is less than 75%
+                    if (isset($attendance_data['pyp_attended']) && isset($attendance_data['pyp_total'])) {
+                        $attendance_percentage = ($attendance_data['pyp_attended'] / $attendance_data['pyp_total']) * 100;
+                        if ($attendance_percentage < 75) {
+                            echo "<p><b class='defaulter'>Defaulter</b></p>";
+                        }
+                    }
+                    ?>
                     <span class="material-icons-sharp">computer</span>
                     <h3>Python Programming</h3>
                     <h2>
@@ -196,6 +223,15 @@ $attendance_data = $attendance_stmt->fetch(PDO::FETCH_ASSOC);
                     </div>
                 </div>
                 <div class="cg">
+                <?php
+                    // Check if attendance is less than 75%
+                    if (isset($attendance_data['dbms_attended']) && isset($attendance_data['dbms_total'])) {
+                        $attendance_percentage = ($attendance_data['dbms_attended'] / $attendance_data['dbms_total']) * 100;
+                        if ($attendance_percentage < 75) {
+                            echo "<p><b class='defaulter'>Defaulter</b></p>";
+                        }
+                    }
+                    ?>
                     <span class="material-icons-sharp">dns</span>
                     <h3>Database Management</h3>
                     <h2>
@@ -223,6 +259,15 @@ $attendance_data = $attendance_stmt->fetch(PDO::FETCH_ASSOC);
                     </div>
                 </div>
                 <div class="net">
+                <?php
+                    // Check if attendance is less than 75%
+                    if (isset($attendance_data['os_attended']) && isset($attendance_data['os_total'])) {
+                        $attendance_percentage = ($attendance_data['os_attended'] / $attendance_data['os_total']) * 100;
+                        if ($attendance_percentage < 75) {
+                            echo "<p><b class='defaulter'>Defaulter</b></p>";
+                        }
+                    }
+                    ?>
                     <span class="material-icons-sharp">router</span>
                     <h3>Operating System</h3>
                     <h2>
@@ -361,6 +406,10 @@ $attendance_data = $attendance_stmt->fetch(PDO::FETCH_ASSOC);
     <script src="app.js"></script>
 </body>
 <style>
+    .defaulter {
+        color: red;
+    }
+
     /* CSS */
     .result-button {
         align-items: center;
