@@ -23,6 +23,13 @@ $attendance_stmt = $pdo->prepare($attendance_query);
 $attendance_stmt->execute([$user['roll_number']]);
 $attendance_data = $attendance_stmt->fetch(PDO::FETCH_ASSOC);
 
+// Fetch mse marks data for the user
+$msemarks_query = "SELECT * FROM mse_marks_add WHERE roll_number = ?";
+$mse_stmt = $pdo->prepare($msemarks_query);
+$mse_stmt->execute([$user['roll_number']]);
+$msemarksdata = $mse_stmt->fetch(PDO::FETCH_ASSOC);
+
+
 
 // Clear output buffer
 ob_end_clean();
@@ -97,31 +104,35 @@ $pdf->Ln(10); // This will move to the next line with a height of 10 units
 
 // Mid Semester Exam Section
 $pdf->SetFont('Arial', 'B', 12); // Set font style to bold
-$pdf->Cell(0, 10, 'Mid Semester Exam:', 0, 1, 'L'); // Left-aligned
+$pdf->Cell(0, 10, 'Mid Semester Exam:', 0, 1, 'L');
 
-// Table Header for Mid Semester Exam
-$pdf->SetFont('Arial', 'B', 12); // Set font style to bold
-$pdf->Cell(60, 10, 'Subject', 1, 0, 'C'); // Column 1: Subject
-$pdf->Cell(60, 10, 'Marks Obtained', 1, 0, 'C'); // Column 2: Marks Obtained
-$pdf->Cell(60, 10, 'Percentage', 1, 1, 'C'); // Column 3: Percentage
+// Table Header for Marks
+$pdf->SetFont('Arial', 'B', 12);
+$pdf->Cell(60, 10, 'Subject', 1, 0, 'C');
+$pdf->Cell(60, 10, 'Marks Obtained', 1, 0, 'C');
+$pdf->Cell(60, 10, 'Percentage', 1, 1, 'C');
 
-// Table Rows for Mid Semester Exam
-$pdf->SetFont('Arial', '', 12); // Reset font style to regular
-$pdf->Cell(60, 10, 'AOA', 1, 0, 'C'); // Column 1: Subject
-$pdf->Cell(60, 10, '70/100', 1, 0, 'C'); // Column 2: Marks Obtained
-$pdf->Cell(60, 10, '75%', 1, 1, 'C'); // Column 3: Percentage
-$pdf->Cell(60, 10, 'EM4', 1, 0, 'C'); // Column 1: Subject
-$pdf->Cell(60, 10, '78/100', 1, 0, 'C'); // Column 2: Marks Obtained
-$pdf->Cell(60, 10, '82%', 1, 1, 'C'); // Column 3: Percentage
-$pdf->Cell(60, 10, 'OS', 1, 0, 'C'); // Column 1: Subject
-$pdf->Cell(60, 10, '80/100', 1, 0, 'C'); // Column 2: Marks Obtained
-$pdf->Cell(60, 10, '85%', 1, 1, 'C'); // Column 3: Percentage
-$pdf->Cell(60, 10, 'DBMS', 1, 0, 'C'); // Column 1: Subject
-$pdf->Cell(60, 10, '85/100', 1, 0, 'C'); // Column 2: Marks Obtained
-$pdf->Cell(60, 10, '90%', 1, 1, 'C'); // Column 3: Percentage
-$pdf->Cell(60, 10, 'PYP', 1, 0, 'C'); // Column 1: Subject
-$pdf->Cell(60, 10, '75/100', 1, 0, 'C'); // Column 2: Marks Obtained
-$pdf->Cell(60, 10, '80%', 1, 1, 'C'); // Column 3: Percentage
+// Table Rows for Marks
+$pdf->SetFont('Arial', '', 12);
+$subjects_marks = [
+    'AOA' => ['marks' => $msemarksdata['aoa_marks'] ?? null, 'total' => $msemarksdata['aoa_total'] ?? null],
+    'EM4' => ['marks' => $msemarksdata['em3_marks'] ?? null, 'total' => $msemarksdata['em3_total'] ?? null],
+    'OS' => ['marks' => $msemarksdata['os_marks'] ?? null, 'total' => $msemarksdata['os_total'] ?? null],
+    'DBMS' => ['marks' => $msemarksdata['dbms_marks'] ?? null, 'total' => $msemarksdata['dbms_total'] ?? null],
+    'PYP' => ['marks' => $msemarksdata['pyp_marks'] ?? null, 'total' => $msemarksdata['pyp_total'] ?? null]
+];
+
+
+foreach ($subjects_marks as $subject => $marks) {
+    $pdf->Cell(60, 10, $subject, 1, 0, 'C');
+    if ($marks['marks'] !== null && $marks['total'] !== null) {
+        $pdf->Cell(60, 10, $marks['marks'] . '/' . $marks['total'], 1, 0, 'C');
+        $percentage = ($marks['marks'] / $marks['total']) * 100;
+        $pdf->Cell(60, 10, round($percentage) . '%', 1, 1, 'C');
+    } else {
+        $pdf->Cell(120, 10, '--', 1, 1, 'C');
+    }
+}
 
 // Output the PDF
 $pdf->Output();
