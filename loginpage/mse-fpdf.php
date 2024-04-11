@@ -1,6 +1,4 @@
 <?php
-// Ensure no output before session start
-ob_start();
 session_start();
 
 // Redirect to login page if user is not logged in
@@ -23,7 +21,8 @@ $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
 $attendance_query = "SELECT * FROM attendance WHERE roll_number = ?";
 $attendance_stmt = $pdo->prepare($attendance_query);
 $attendance_stmt->execute([$user['roll_number']]);
-$attendance_data = $attendance_stmt->fetchAll(PDO::FETCH_ASSOC);
+$attendance_data = $attendance_stmt->fetch(PDO::FETCH_ASSOC);
+
 
 // Clear output buffer
 ob_end_clean();
@@ -69,22 +68,30 @@ $pdf->Cell(60, 10, 'Attendance', 1, 0, 'C'); // Column 2: Attendance
 $pdf->Cell(60, 10, 'Percentage', 1, 1, 'C'); // Column 3: Percentage
 
 // Table Rows for Attendance
+
 $pdf->SetFont('Arial', '', 12); // Reset font style to regular
-$pdf->Cell(60, 10, 'AOA', 1, 0, 'C'); // Column 1: Subject
-$pdf->Cell(60, 10, '90/100', 1, 0, 'C'); // Column 2: Attendance
-$pdf->Cell(60, 10, '95%', 1, 1, 'C'); // Column 3: Percentage
-$pdf->Cell(60, 10, 'EM4', 1, 0, 'C'); // Column 1: Subject
-$pdf->Cell(60, 10, '88/100', 1, 0, 'C'); // Column 2: Attendance
-$pdf->Cell(60, 10, '93%', 1, 1, 'C'); // Column 3: Percentage
-$pdf->Cell(60, 10, 'OS', 1, 0, 'C'); // Column 1: Subject
-$pdf->Cell(60, 10, '85/100', 1, 0, 'C'); // Column 2: Attendance
-$pdf->Cell(60, 10, '90%', 1, 1, 'C'); // Column 3: Percentage
-$pdf->Cell(60, 10, 'DBMS', 1, 0, 'C'); // Column 1: Subject
-$pdf->Cell(60, 10, '92/100', 1, 0, 'C'); // Column 2: Attendance
-$pdf->Cell(60, 10, '97%', 1, 1, 'C'); // Column 3: Percentage
-$pdf->Cell(60, 10, 'PYP', 1, 0, 'C'); // Column 1: Subject
-$pdf->Cell(60, 10, '86/100', 1, 0, 'C'); // Column 2: Attendance
-$pdf->Cell(60, 10, '91%', 1, 1, 'C'); // Column 3: Percentage
+
+// Define attendance data for each subject
+$subjects = [
+    'AOA' => ['attended' => $attendance_data['aoa_attended'] ?? null, 'total' => $attendance_data['aoa_total'] ?? null],
+    'EM4' => ['attended' => $attendance_data['em3_attended'] ?? null, 'total' => $attendance_data['em3_total'] ?? null],
+    'OS' => ['attended' => $attendance_data['os_attended'] ?? null, 'total' => $attendance_data['os_total'] ?? null],
+    'DBMS' => ['attended' => $attendance_data['dbms_attended'] ?? null, 'total' => $attendance_data['dbms_total'] ?? null],
+    'PYP' => ['attended' => $attendance_data['pyp_attended'] ?? null, 'total' => $attendance_data['pyp_total'] ?? null]
+];
+
+// Loop through each subject and output the attendance data
+foreach ($subjects as $subject => $attendance) {
+    $pdf->Cell(60, 10, $subject, 1, 0, 'C'); // Column 1: Subject
+    if ($attendance['attended'] !== null && $attendance['total'] !== null) {
+        $pdf->Cell(60, 10, $attendance['attended'] . '/' . $attendance['total'], 1, 0, 'C'); // Column 2: Attendance
+        $percentage = ($attendance['attended'] / $attendance['total']) * 100;
+        $pdf->Cell(60, 10, round($percentage) . '%', 1, 1, 'C'); // Column 3: Percentage
+    } else {
+        $pdf->Cell(120, 10, '--', 1, 1, 'C'); // If data is not available, display '--' for both attendance and percentage
+    }
+}
+
 
 $pdf->Ln(10); // This will move to the next line with a height of 10 units
 
