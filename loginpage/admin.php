@@ -98,7 +98,6 @@
         <div class="box">
           <div class="right-side">
             <div class="box-topic"></div>
-            <!DOCTYPE html>
 <html>
 <head>
     <title>Execute SQL on Button Click</title>
