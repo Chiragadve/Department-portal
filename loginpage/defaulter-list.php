@@ -32,13 +32,18 @@ $pdf->Ln(50); // Adjust the distance as needed
 // Set font style for "Report Card"
 $pdf->SetFont('Arial', 'B', 16);
 
+$pdf->Cell(0, 10, 'Defaulters List (Subject Wise) ', 0, 1, 'C');
+
+$pdf->Cell(0, 10, 'Comps   SE   Div A Semester IV', 0, 1, 'C');
+
 // Center-align "Report Card"
-$pdf->Cell(0, 10, 'Defaulter List', 0, 1, 'C');
+
+$pdf->Ln(10); // Add 10 units of space
 
 // Add a header for the table
 $pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(30, 10, 'Roll Number', 1, 0, 'C');
-$pdf->Cell(50, 10, 'Name', 1, 0, 'C');
+$pdf->Cell(20, 10, 'Roll no.', 1, 0, 'C');
+$pdf->Cell(40, 10, 'Name', 1, 0, 'C');
 $pdf->Cell(20, 10, 'AOA (%)', 1, 0, 'C'); // Smaller width for AOA
 $pdf->Cell(20, 10, 'EM3 (%)', 1, 0, 'C'); // Smaller width for EM3
 $pdf->Cell(20, 10, 'PYP (%)', 1, 0, 'C'); // Smaller width for PYP
@@ -63,8 +68,8 @@ foreach ($attendance_data as $attendance) {
 
     // Check if total attendance percentage is less than 75%
     if ($total_percentage < 75) {
-        $pdf->Cell(30, 10, $attendance['roll_number'], 1, 0, 'C');
-        $pdf->Cell(50, 10, $attendance['name'], 1, 0, 'C');
+        $pdf->Cell(20, 10, $attendance['roll_number'], 1, 0, 'C');
+        $pdf->Cell(40, 10, $attendance['name'], 1, 0, 'C');
         $pdf->Cell(20, 10, round($aoa_percentage, 2), 1, 0, 'C');
         $pdf->Cell(20, 10, round($em3_percentage, 2), 1, 0, 'C');
         $pdf->Cell(20, 10, round($pyp_percentage, 2), 1, 0, 'C');
