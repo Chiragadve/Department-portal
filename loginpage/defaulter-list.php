@@ -24,10 +24,10 @@ $pdf->AddPage();
 $pdf->SetFont('Arial', '', 12);
 
 // Add banner image
-$pdf->Image('images/banner.jpg', 10, 10, 180); // Replace 'images/banner.jpg' with the actual path to your image file
+$pdf->Image('images/banner.jpg', 10, 10, 180); 
 
 // Move down by some distance
-$pdf->Ln(50); // Adjust the distance as needed
+$pdf->Ln(50); 
 
 // Set font style for "Report Card"
 $pdf->SetFont('Arial', 'B', 16);
@@ -36,7 +36,6 @@ $pdf->Cell(0, 10, 'Defaulters List (Subject Wise) ', 0, 1, 'C');
 
 $pdf->Cell(0, 10, 'Comps   SE   Div A Semester IV', 0, 1, 'C');
 
-// Center-align "Report Card"
 
 $pdf->Ln(10); // Add 10 units of space
 
