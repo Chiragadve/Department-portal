@@ -38,9 +38,15 @@
         </a>
       </li>
       <li>
-        <a href="add-mse.php" class="active">
+        <a href="add-mse.php">
           <i class="bx bx-box"></i>
           <span class="links_name">Add MSE Marks</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="active">
+          <i class="bx bx-box"></i>
+          <span class="links_name">Add ese Marks</span>
         </a>
       </li>
       <li class="log_out">
@@ -131,7 +137,7 @@
               </style>
               </head>
               
-              <form action="submit-mse.php" method="POST">
+              <form action="submit-ese.php" method="POST">
               <body>
                 <h2 align="center">MSE Marks Form</h2>
                 <br>
