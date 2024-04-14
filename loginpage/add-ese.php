@@ -46,7 +46,7 @@
       <li>
         <a href="#" class="active">
           <i class="bx bx-box"></i>
-          <span class="links_name">Add ese Marks</span>
+          <span class="links_name">Add ESE Marks</span>
         </a>
       </li>
       <li class="log_out">
@@ -139,7 +139,7 @@
               
               <form action="submit-ese.php" method="POST">
               <body>
-                <h2 align="center">MSE Marks Form</h2>
+                <h2 align="center">ESE Marks Form</h2>
                 <br>
                 <table>
                   <tr>

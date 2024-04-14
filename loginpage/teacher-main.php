@@ -41,6 +41,12 @@
           <span class="links_name">Add MSE Marks</span>
         </a>
       </li>
+      <li>
+        <a href="add-ese.php">
+          <i class="bx bx-box"></i>
+          <span class="links_name">Add ESE Marks</span>
+        </a>
+      </li>
       <li class="log_out">
         <a href="../index.html">
           <i class="bx bx-log-out"></i>
