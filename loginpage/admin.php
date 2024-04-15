@@ -139,8 +139,25 @@ document.getElementById("mseexecuteButton").addEventListener("click", function()
     xhr.open("GET", "auto-mse-marks-add.php", true);
     xhr.send();
 });
+
+
 </script>
 
+<script>
+document.getElementById("mseexecuteButton").addEventListener("click", function() {
+    // AJAX request to execute SQL queries
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            alert("SQL queries executed successfully.");
+        } else if (this.readyState == 4) {
+            alert("Error executing SQL queries: " + this.responseText);
+        }
+    };
+    xhr.open("GET", "auto-mse-marks-add.php", true);
+    xhr.send();
+});
+</script>
 </body>
 </html>
 
