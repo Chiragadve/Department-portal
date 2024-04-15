@@ -143,8 +143,11 @@ document.getElementById("mseexecuteButton").addEventListener("click", function()
 
 </script>
 
+
+<button id="defaulter-list">Defaluter List</button>
+
 <script>
-document.getElementById("mseexecuteButton").addEventListener("click", function() {
+document.getElementById("defaulter-list").addEventListener("click", function() {
     // AJAX request to execute SQL queries
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -154,7 +157,7 @@ document.getElementById("mseexecuteButton").addEventListener("click", function()
             alert("Error executing SQL queries: " + this.responseText);
         }
     };
-    xhr.open("GET", "auto-mse-marks-add.php", true);
+    xhr.open("GET", "defaulter-list.php", true);
     xhr.send();
 });
 </script>
