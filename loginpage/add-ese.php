@@ -74,7 +74,7 @@
         <div class="overview-boxes">
             
           <?php
-          session_start(); // Start the session
+          session_start(); 
 
           // Assuming you have a database connection established already
           require_once "dbh.inc.php";
@@ -106,7 +106,6 @@
 
 
 
-          // Fetch the students whose teacher column matches the logged-in teacher's name
           $sql_fetch_students = "SELECT roll_number, name FROM student WHERE teacher LIKE :teacher";
           $stmt_fetch_students = $pdo->prepare($sql_fetch_students);
           $stmt_fetch_students->bindValue(':teacher', '%' . $logged_in_name . '%', PDO::PARAM_STR);

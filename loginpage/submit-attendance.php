@@ -1,7 +1,7 @@
 <?php
 
 
-session_start(); // Start the session
+session_start(); 
 
 
 // Assuming you have a database connection established already

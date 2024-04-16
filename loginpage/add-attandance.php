@@ -75,21 +75,18 @@
 
 
           <?php
-          session_start(); // Start the session
-
-          // Assuming you have a database connection established already
+          session_start();
           require_once "dbh.inc.php";
 
-          // Check if the user is logged in and get the username from the session
           if (!isset($_SESSION['username'])) {
-            // Redirect to the login page or display an error message
+
             header("Location: login.php");
-            exit(); // Stop further execution
+            exit();
           }
 
           $logged_in_username = $_SESSION['username'];
 
-          // Fetch the name of the logged-in user from the database
+         
           $sql_fetch_name = "SELECT name,subject FROM teachers WHERE username = :username";
           $stmt_fetch_name = $pdo->prepare($sql_fetch_name);
           $stmt_fetch_name->bindParam(':username', $logged_in_username, PDO::PARAM_STR);
@@ -97,17 +94,16 @@
           $user_data = $stmt_fetch_name->fetch(PDO::FETCH_ASSOC);
 
           if (!$user_data) {
-            // Handle the case if the username does not exist in the table
+         
             echo "Error: Username not found.";
-            exit(); // Stop further execution
+            exit();
           }
 
-          $logged_in_name = $user_data['name']; // Name of the logged-in user
-          $logged_in_subject = $user_data['subject']; // Subject of the logged-in user
+          $logged_in_name = $user_data['name']; 
+          $logged_in_subject = $user_data['subject']; 
 
 
 
-          // Fetch the students whose teacher column matches the logged-in teacher's name
           $sql_fetch_students = "SELECT roll_number, name FROM student WHERE teacher LIKE :teacher";
           $stmt_fetch_students = $pdo->prepare($sql_fetch_students);
           $stmt_fetch_students->bindValue(':teacher', '%' . $logged_in_name . '%', PDO::PARAM_STR);
@@ -124,21 +120,22 @@
                 margin: 0 auto;
                 border-collapse: collapse;
               }
-              
+
               th,
               td {
                 border: 1px solid black;
                 padding: 10px;
                 text-align: left;
               }
-              
+
               .bold-row th {
                 font-weight: bold;
               }
-              </style>
-              </head>
-              
-              <form action="submit-attendance.php" method="POST">
+            </style>
+            </head>
+
+            <form action="submit-attendance.php" method="POST">
+
               <body>
                 <h2 align="center">Attendance Form</h2>
                 <br>
@@ -163,7 +160,7 @@
                   <tr>
                     <th>No of classes conducted in this week</th>
                     <td>
-                    <input type="text" name="total_conducted" required>
+                      <input type="text" name="total_conducted" required>
                     </td>
 
                   </tr>

@@ -1,6 +1,6 @@
 <?php
 
-session_start(); // Start the session
+session_start(); 
 
 include 'dbh.inc.php'; // Include your database connection file
 

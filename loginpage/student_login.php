@@ -1,36 +1,27 @@
 <?php
-// Start the session
 session_start();
 
-require_once "dbh.inc.php"; // Include the database connection file
+require_once "dbh.inc.php"; 
 
-$errorMsg = ""; // Initialize error message variable
-
+$errorMsg = ""; 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
     try {
-        // Prepare the SQL statement
         $query = "SELECT * FROM student WHERE username=? AND password=?";
         $stmt = $pdo->prepare($query);
 
-        // Bind the parameters and execute the query
         $stmt->execute([$username, $password]);
 
-        // Check if a matching record is found
         if ($stmt->rowCount() > 0) {
-            // Set username in session
             $_SESSION['username'] = $username;
-            // Redirect to student-main.php if login is successful
             header("Location: student-main.php");
             exit();
         } else {
-            // If no matching record found, set error message
             $errorMsg = "Invalid username or password";
         }
     } catch (PDOException $e) {
-        // Display an error message if query execution fails
         die("Query failed: " . $e->getMessage());
     }
 }
