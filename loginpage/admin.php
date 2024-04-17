@@ -145,23 +145,8 @@
                 </script>
 
 
-                <button id="defaulter-list">Defaluter List</button>
 
-                <script>
-                  document.getElementById("defaulter-list").addEventListener("click", function() {
-                    // AJAX request to execute SQL queries
-                    var xhr = new XMLHttpRequest();
-                    xhr.onreadystatechange = function() {
-                      if (this.readyState == 4 && this.status == 200) {
-                        alert("SQL queries executed successfully.");
-                      } else if (this.readyState == 4) {
-                        alert("Error executing SQL queries: " + this.responseText);
-                      }
-                    };
-                    xhr.open("GET", "defaulter-list.php", true);
-                    xhr.send();
-                  });
-                </script>
+
               </body>
 
               </html>
@@ -172,8 +157,17 @@
           </div>
           <div class="box">
             <div class="right-side">
-              <div class="box-topic">event</div>
-              <p></p>
+              <h2>Generate the defaulter list for this semester</h2>
+              <br>
+              <br>
+              <button id="defaulter-list">Defaluter List</button>
+
+              <script>
+                document.getElementById("defaulter-list").addEventListener("click", function() {
+                  // Redirect to defaulter-list.php
+                  window.location.href = "defaulter-list.php";
+                });
+              </script>
               <div class="indicator">
               </div>
             </div>
@@ -187,6 +181,16 @@
               </div>
             </div>
           </div>
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Add Technical Event</div>
+              <br>
+              <button>Add Event</button>
+              <div class="indicator">
+              </div>
+            </div>
+          </div>
+          <br>
           <div class="box">
             <div class="right-side">
               <div class="box-topic">Add Technical Event</div>
@@ -453,6 +457,7 @@
         padding: 15px 14px;
         border-radius: 12px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 30px;
       }
 
       .overview-boxes .box-topic {
