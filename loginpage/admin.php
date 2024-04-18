@@ -200,6 +200,15 @@
               </div>
             </div>
           </div>
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Add Technical Event</div>
+              <br>
+              <button>Add Event</button>
+              <div class="indicator">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
