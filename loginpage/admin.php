@@ -109,7 +109,7 @@
 
                 <h2>Click the Button to Add all attendance entry for this week</h2>
                 <br>
-                <button id="executeButton">Add Queries</button>
+                <button class="button-admin" id="executeButton">Add Queries</button>
 
                 <script>
                   document.getElementById("executeButton").addEventListener("click", function() {
@@ -126,26 +126,6 @@
                     xhr.send();
                   });
                 </script>
-                <button id="mseexecuteButton">Add Queries</button>
-
-                <script>
-                  document.getElementById("mseexecuteButton").addEventListener("click", function() {
-                    // AJAX request to execute SQL queries
-                    var xhr = new XMLHttpRequest();
-                    xhr.onreadystatechange = function() {
-                      if (this.readyState == 4 && this.status == 200) {
-                        alert("SQL queries executed successfully.");
-                      } else if (this.readyState == 4) {
-                        alert("Error executing SQL queries: " + this.responseText);
-                      }
-                    };
-                    xhr.open("GET", "auto-mse-marks-add.php", true);
-                    xhr.send();
-                  });
-                </script>
-
-
-
 
               </body>
 
@@ -160,7 +140,8 @@
               <h2>Generate the defaulter list for this semester</h2>
               <br>
               <br>
-              <button id="defaulter-list">Defaluter List</button>
+              <br>
+              <button class="button-admin" id="defaulter-list">Defaluter List</button>
 
               <script>
                 document.getElementById("defaulter-list").addEventListener("click", function() {
@@ -168,6 +149,84 @@
                   window.location.href = "defaulter-list.php";
                 });
               </script>
+              <div class="indicator">
+              </div>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="right-side">
+
+              <h2>Click to tally all MSE marks</h2>
+
+              <br>
+              <br>
+              <br>
+              <br>
+              <button class="button-admin" id="mseexecuteButton">Add Queries</button>
+
+              <script>
+                document.getElementById("mseexecuteButton").addEventListener("click", function() {
+                  // AJAX request to execute SQL queries
+                  var xhr = new XMLHttpRequest();
+                  xhr.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                      alert("SQL queries executed successfully.");
+                    } else if (this.readyState == 4) {
+                      alert("Error executing SQL queries: " + this.responseText);
+                    }
+                  };
+                  xhr.open("GET", "auto-mse-marks-add.php", true);
+                  xhr.send();
+                });
+              </script>
+              <div class="indicator">
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="right-side">
+
+              <h2>Click to tally all ESE marks</h2>
+
+              <br>
+              <br>
+              <br>
+              <br>
+              <button class="button-admin" id="mseexecuteButton">Add Queries</button>
+
+              <script>
+                document.getElementById("mseexecuteButton").addEventListener("click", function() {
+                  // AJAX request to execute SQL queries
+                  var xhr = new XMLHttpRequest();
+                  xhr.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                      alert("SQL queries executed successfully.");
+                    } else if (this.readyState == 4) {
+                      alert("Error executing SQL queries: " + this.responseText);
+                    }
+                  };
+                  xhr.open("GET", "auto-mse-marks-add.php", true);
+                  xhr.send();
+                });
+              </script>
+              <div class="indicator">
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="right-side">
+
+              <div class="box-topic">Add Examination :
+                <h3>Message</h3>
+                <input type="textarea">
+                <h3>Link</h3>
+                <input type="text">
+              </div>
+
+              <br>
+              <br>
+              <button class="button-admin">Add Event</button>
               <div class="indicator">
               </div>
             </div>
@@ -184,7 +243,7 @@
 
               <br>
               <br>
-              <button>Add Event</button>
+              <button class="button-admin">Add Event</button>
               <div class="indicator">
               </div>
             </div>
@@ -201,29 +260,13 @@
 
               <br>
               <br>
-              <button>Add Event</button>
+              <button class="button-admin">Add Event</button>
               <div class="indicator">
               </div>
             </div>
           </div>
           <br>
-          <div class="box">
-            <div class="right-side">
 
-              <div class="box-topic">Add Examination :
-                <h3>Message</h3>
-                <input type="textarea">
-                <h3>Link</h3>
-                <input type="text">
-              </div>
-
-              <br>
-              <br>
-              <button>Add Event</button>
-              <div class="indicator">
-              </div>
-            </div>
-          </div>
 
         </div>
       </div>
