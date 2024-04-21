@@ -149,7 +149,7 @@ $attendance_data = $attendance_stmt->fetch(PDO::FETCH_ASSOC);
                     </div>
                 </div>
                 <div class="eg">
-                <?php
+                    <?php
                     // Check if attendance is less than 75%
                     if (isset($attendance_data['em3_attended']) && isset($attendance_data['em3_total'])) {
                         $attendance_percentage = ($attendance_data['em3_attended'] / $attendance_data['em3_total']) * 100;
@@ -186,7 +186,7 @@ $attendance_data = $attendance_stmt->fetch(PDO::FETCH_ASSOC);
                     </div>
                 </div>
                 <div class="cs">
-                <?php
+                    <?php
                     // Check if attendance is less than 75%
                     if (isset($attendance_data['pyp_attended']) && isset($attendance_data['pyp_total'])) {
                         $attendance_percentage = ($attendance_data['pyp_attended'] / $attendance_data['pyp_total']) * 100;
@@ -222,7 +222,7 @@ $attendance_data = $attendance_stmt->fetch(PDO::FETCH_ASSOC);
                     </div>
                 </div>
                 <div class="cg">
-                <?php
+                    <?php
                     // Check if attendance is less than 75%
                     if (isset($attendance_data['dbms_attended']) && isset($attendance_data['dbms_total'])) {
                         $attendance_percentage = ($attendance_data['dbms_attended'] / $attendance_data['dbms_total']) * 100;
@@ -258,7 +258,7 @@ $attendance_data = $attendance_stmt->fetch(PDO::FETCH_ASSOC);
                     </div>
                 </div>
                 <div class="net">
-                <?php
+                    <?php
                     // Check if attendance is less than 75%
                     if (isset($attendance_data['os_attended']) && isset($attendance_data['os_total'])) {
                         $attendance_percentage = ($attendance_data['os_attended'] / $attendance_data['os_total']) * 100;
@@ -345,15 +345,15 @@ $attendance_data = $attendance_stmt->fetch(PDO::FETCH_ASSOC);
                 <div class="updates">
                     <div class="message">
                         <p> <b>Academic</b> Summer training internship with Live Projects.</p>
-                        <small class="text-muted"><button>More Info</button></small>
+                        <small class="text-muted"><button class="button-admin">More Info</button></small>
                     </div>
                     <div class="message">
                         <p> <b>Co-curricular</b> Global internship oportunity by Student organization.</p>
-                        <small class="text-muted"><button>More Info</button></small>
+                        <small class="text-muted"><button class="button-admin">More Info</button></small>
                     </div>
                     <div class="message">
                         <p> <b>Examination</b> Instructions for Mid Term Examination.</p>
-                        <small class="text-muted"><button>More Info</button></small>
+                        <small class="text-muted"><button class="button-admin">More Info</button></small>
                     </div>
                 </div>
             </div>
@@ -426,7 +426,7 @@ $attendance_data = $attendance_stmt->fetch(PDO::FETCH_ASSOC);
         justify-content: center;
         line-height: 1.25;
         margin: 0;
-        min-height: 3rem;
+        min-height: 1.5rem;
         padding: calc(.875rem - 1px) calc(1.5rem - 1px);
         position: relative;
         text-decoration: none;
@@ -455,6 +455,32 @@ $attendance_data = $attendance_stmt->fetch(PDO::FETCH_ASSOC);
         box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
         color: rgba(0, 0, 0, 0.65);
         transform: translateY(0);
+    }
+
+    .button-admin {
+        align-items: center;
+        appearance: none;
+        background-color: #fff;
+        border: 1px solid #dbdbdb;
+        border-radius: .375em;
+        box-shadow: none;
+        box-sizing: border-box;
+        color: #363636;
+        cursor: pointer;
+        display: inline-flex;
+        font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 1rem;
+        height: 2.5em;
+        justify-content: center;
+        line-height: 1.5;
+        padding: calc(.5em - 1px) 1em;
+        position: relative;
+        text-align: center;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        vertical-align: top;
+        white-space: nowrap;
     }
 </style>
 

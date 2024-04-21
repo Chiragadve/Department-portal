@@ -162,7 +162,6 @@
               <br>
               <br>
               <br>
-              <br>
               <button class="button-admin" id="mseexecuteButton">Add Queries</button>
 
               <script>
@@ -189,7 +188,6 @@
 
               <h2>Click to tally all ESE marks</h2>
 
-              <br>
               <br>
               <br>
               <br>
@@ -559,6 +557,7 @@
         flex-wrap: wrap;
         padding: 0 20px;
         margin-bottom: 26px;
+        margin-left: 42px;
       }
 
       .overview-boxes .box {
