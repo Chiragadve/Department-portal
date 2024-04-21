@@ -174,7 +174,15 @@
           </div>
           <div class="box">
             <div class="right-side">
-              <div class="box-topic">Add Acacemic : <input type="textarea"></div>
+
+              <div class="box-topic">Add Examination :
+                <h3>Message</h3>
+                <input type="textarea">
+                <h3>Link</h3>
+                <input type="text">
+              </div>
+
+              <br>
               <br>
               <button>Add Event</button>
               <div class="indicator">
@@ -183,7 +191,15 @@
           </div>
           <div class="box">
             <div class="right-side">
-              <div class="box-topic">Add Technical Event</div>
+
+              <div class="box-topic">Add Examination :
+                <h3>Message</h3>
+                <input type="textarea">
+                <h3>Link</h3>
+                <input type="text">
+              </div>
+
+              <br>
               <br>
               <button>Add Event</button>
               <div class="indicator">
@@ -193,22 +209,22 @@
           <br>
           <div class="box">
             <div class="right-side">
-              <div class="box-topic">Add Technical Event</div>
+
+              <div class="box-topic">Add Examination :
+                <h3>Message</h3>
+                <input type="textarea">
+                <h3>Link</h3>
+                <input type="text">
+              </div>
+
+              <br>
               <br>
               <button>Add Event</button>
               <div class="indicator">
               </div>
             </div>
           </div>
-          <div class="box">
-            <div class="right-side">
-              <div class="box-topic">Add Technical Event</div>
-              <br>
-              <button>Add Event</button>
-              <div class="indicator">
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </section>
