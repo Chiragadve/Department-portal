@@ -344,19 +344,20 @@ $attendance_data = $attendance_stmt->fetch(PDO::FETCH_ASSOC);
                 <h2>Announcements</h2>
                 <div class="updates">
                     <div class="message">
-                        <p> <b>Academic</b> Summer training internship with Live Projects.</p>
-                        <small class="text-muted"><button class="button-admin">More Info</button></small>
+                        <p><b>Academic</b> Summer training internship with Live Projects.</p>
+                        <small class="text-muted"><a href="http://www.frcrce.ac.in/" class="button-admin">More Info</a></small>
                     </div>
                     <div class="message">
-                        <p> <b>Co-curricular</b> Global internship oportunity by Student organization.</p>
-                        <small class="text-muted"><button class="button-admin">More Info</button></small>
+                        <p><b>Co-curricular</b> Student Council formation Notice</p>
+                        <small class="text-muted"><a href="https://fragnel.edu.in/attachments/article/604/Notice_Students%20Council%20Appln_2024.pdf" class="button-admin">More Info</a></small>
                     </div>
                     <div class="message">
-                        <p> <b>Examination</b> Instructions for Mid Term Examination.</p>
-                        <small class="text-muted"><button class="button-admin">More Info</button></small>
+                        <p><b>Examination</b> Instructions for Mid Term Examination.</p>
+                        <small class="text-muted"><a href="http://www.frcrce.ac.in/attachments/article/607/kt%20forms.PDF" class="button-admin">More Info</a></small>
                     </div>
                 </div>
             </div>
+
 
 
             <div class="leaves">
