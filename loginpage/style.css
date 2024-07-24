@@ -132,7 +132,7 @@ header .logo {
 }
 
 header .logo img {
-  width: 160px; /* Set the width of the image */
+  width: 128px; /* Set the width of the image */
   height: 50px; /* Set the height of the image */
   /* object-fit: cover; Scale the image to be as small as possible while ensuring its aspect ratio is maintained */
   object-position: center; /* Position the image at the center */

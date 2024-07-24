@@ -26,7 +26,6 @@
         </ul>
     </nav>
     <div style="height: 210px;"></div> <!-- Added space for the fixed navbar -->
-
     <div class="container d-flex justify-content-center align-items-center min-vh-500">
         <div class="row">
             <div class="col-4">
@@ -62,7 +61,7 @@
     </div>
 
     <div class="next-btn">
-        <button type="button" class="btn btn-primary btn-lg" onclick="redirectToSelectedPage()">    Next     </button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="redirectToSelectedPage()"> Next </button>
     </div>
 
     <script>

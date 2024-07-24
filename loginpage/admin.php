@@ -41,12 +41,7 @@
           <span class="links_name">Add Teacher</span>
         </a>
       </li>
-      <li>
-        <a href="mail.php">
-          <i class="bx bx-list-ul"></i>
-          <span class="links_name">Send mail</span>
-        </a>
-      </li>
+
       <li>
         <a href="#update-info">
           <i class="bx bx-coin-stack"></i>
